@@ -1,0 +1,11 @@
+# vim: ts=2:sts=2:sw=2:expandtab:smarttab:
+
+publish:
+  docker:
+    tag: latest
+    repo: wachanga/slacker
+    registry: registry.wachanga.com
+    email: docker
+    username: docker
+    password: $$REGISTRY_PASSWORD
+
