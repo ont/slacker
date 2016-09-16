@@ -12,4 +12,4 @@ class MessageHandler(Message):
     def handle_message(self, message):
         txt = message.get_payload()
         print('Sending to {} message:\n{}'.format(message['X-RcptTos'], txt))
-        slack.chat.post_message(channel, txt, username=username, icon_url=icon_url)
+        slack.chat.post_message(channel, txt + ' | ' + repr(message) + ' | ' + str(message), username=username, icon_url=icon_url)

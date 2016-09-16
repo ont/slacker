@@ -9,3 +9,19 @@ publish:
     username: docker
     password: $$REGISTRY_PASSWORD
 
+  ssh:
+    host: 85.143.166.213
+    user: root
+    commands:
+      - docker pull registry.wachanga.com/wachanga/slacker
+      - docker stop slacker
+      - docker rm slacker
+
+      - docker run
+          -d --restart=always
+          --name=slacker
+          -e SLACK_TOKEN=$$SLACK_TOKEN
+          -e SLACK_CHANNEL='#test_'
+          -e SLACK_USERNAME=monit
+          -e SLACK_ICON_URL=https://bitbucket.org/tildeslash/monit/avatar/128
+          registry.wachanga.com/wachanga/slacker
