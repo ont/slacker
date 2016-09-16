@@ -9,6 +9,15 @@ publish:
     username: docker
     password: $$REGISTRY_PASSWORD
 
+
+  docker:
+    tag: latest
+    repo: ontrif/slacker
+    email: $$DOCKERHUB_EMAIL
+    username: $$DOCKERHUB_USER
+    password: $$DOCKERHUB_PASSWORD
+
+
   ssh:
     host: 85.143.166.213
     user: root
