@@ -20,9 +20,6 @@ publish:
       - docker run
           -d --restart=always
           --name=slacker
-          -e SLACK_TOKEN='$$SLACK_TOKEN'
-          -e SLACK_CHANNEL='#test_'
-          -e SLACK_USERNAME=monit
-          -e SLACK_ICON_URL=https://bitbucket.org/tildeslash/monit/avatar/128
+          -v /etc/docker/containers/slacker:/etc/slacker
           -p 127.0.0.1:8025:8025
           registry.wachanga.com/wachanga/slacker
