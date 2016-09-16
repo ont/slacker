@@ -24,4 +24,5 @@ publish:
           -e SLACK_CHANNEL='#test_'
           -e SLACK_USERNAME=monit
           -e SLACK_ICON_URL=https://bitbucket.org/tildeslash/monit/avatar/128
+          -p 127.0.0.1:8025:8025
           registry.wachanga.com/wachanga/slacker
