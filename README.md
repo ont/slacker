@@ -65,7 +65,7 @@ rules:
 
     - name: Cron rule
       from: root@localhost
-      subject: Cron.*    # cron email subject as "Cron..."
+      subject: Cron.*    # cron email subject starts with "Cron..."
 
       options:
           username: cron
