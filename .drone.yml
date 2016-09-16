@@ -20,7 +20,7 @@ publish:
       - docker run
           -d --restart=always
           --name=slacker
-          -e SLACK_TOKEN=$$SLACK_TOKEN
+          -e SLACK_TOKEN='$$SLACK_TOKEN'
           -e SLACK_CHANNEL='#test_'
           -e SLACK_USERNAME=monit
           -e SLACK_ICON_URL=https://bitbucket.org/tildeslash/monit/avatar/128
