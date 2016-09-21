@@ -4,20 +4,26 @@ publish:
   docker:
     tag:
       - latest
-      - $$DRONE_TAG
+      - $$TAG
     repo: wachanga/slacker
     registry: registry.wachanga.com
     email: docker
     username: docker
     password: $$REGISTRY_PASSWORD
+    when:
+      event: tag
 
 
   docker:
-    tag: latest
+    tag:
+      - latest
+      - $$TAG
     repo: ontrif/slacker
     email: $$DOCKERHUB_EMAIL
     username: $$DOCKERHUB_USER
     password: $$DOCKERHUB_PASSWORD
+    when:
+      event: tag
 
 
   ssh:
@@ -34,3 +40,5 @@ publish:
           -v /etc/docker/containers/slacker:/etc/slacker
           -p 127.0.0.1:8025:8025
           registry.wachanga.com/wachanga/slacker
+    when:
+      event: tag
