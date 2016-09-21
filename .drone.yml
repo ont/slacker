@@ -2,7 +2,9 @@
 
 publish:
   docker:
-    tag: latest
+    tag:
+      - latest
+      - $$TAG
     repo: wachanga/slacker
     registry: registry.wachanga.com
     email: docker
