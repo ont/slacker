@@ -40,7 +40,8 @@ class MessageHandler(Message):
         fields = {
             'from': message['From'],
             'to': message['To'],
-            'subject': message['Subject']
+            'subject': message['Subject'],
+            'body': message.get_payload()
         }
 
         print(fields)
