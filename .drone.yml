@@ -5,22 +5,8 @@ pipeline:
     image: plugins/docker
     tag:
       - latest
-      - $$TAG
+      - ${TAG}
     repo: ontrif/slacker
-    when:
-      event: tag
-
-
-  publish-private:
-    image: plugins/docker
-    tag:
-      - latest
-      - $$TAG
-    repo: wachanga/slacker
-    registry: registry.wachanga.com
-    email: docker
-    username: docker
-    password: $$REGISTRY_PASSWORD
     when:
       event: tag
 
