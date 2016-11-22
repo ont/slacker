@@ -5,7 +5,7 @@ pipeline:
     image: plugins/docker
     tag:
       - latest
-      - ${TAG}
+      - ${DRONE_TAG}
     repo: ontrif/slacker
     when:
       event: tag
