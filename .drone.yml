@@ -9,22 +9,4 @@ pipeline:
     repo: ontrif/slacker
     when:
       event: tag
-
-
-  deploy:
-    image: plugins/ssh
-    host: 85.143.166.213
-    user: root
-    commands:
-      - docker pull registry.wachanga.com/wachanga/slacker
-      - docker stop slacker
-      - docker rm slacker
-
-      - docker run
-          -d --restart=always
-          --name=slacker
-          -v /etc/docker/containers/slacker:/etc/slacker
-          -p 127.0.0.1:8025:8025
-          registry.wachanga.com/wachanga/slacker
-    when:
-      event: tag
+    secrets: [ docker_username, docker_password ]
