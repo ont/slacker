@@ -18,7 +18,6 @@ class MessageHandler(Message):
 
         self.config = yaml.load(open(config))
 
-
     def handle_message(self, message):
         """ This method will be called by aiosmtpd server when new mail will
             arrived.
@@ -30,7 +29,6 @@ class MessageHandler(Message):
 
         if options['debug']:
             self.send_to_slack('DEBUG: ' + str(message), **options)
-
 
     def process_rules(self, message):
         """ Check every rule from config and returns options from matched
@@ -47,7 +45,11 @@ class MessageHandler(Message):
         print(fields)
 
         for rule in self.config['rules']:
-            tests = (re.match(rule[field], value) for field, value in fields.items() if field in rule)
+            # TODO: better handling of None values than just str(value)
+            tests = (
+                re.match(rule[field], str(value))
+                for field, value in fields.items() if field in rule
+            )
 
             if all(tests):
                 options = default.copy()
@@ -55,7 +57,6 @@ class MessageHandler(Message):
                 return options
 
         return default
-
 
     def send_to_slack(self, text, **options):
         print('sending to slack', text, options)
