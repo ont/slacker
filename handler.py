@@ -25,7 +25,7 @@ class MessageHandler(Message):
         options = self.process_rules(message)
 
         print('matched', options)
-        self.send_to_slack(message.get_payload(), **options)
+        self.send_to_slack(self.extract_text(message), **options)
 
         if options['debug']:
             self.send_to_slack('DEBUG: ' + str(message), **options)
@@ -57,6 +57,12 @@ class MessageHandler(Message):
                 return options
 
         return default
+
+    def extract_text(self, message):
+        fmt = self.config['default'].get('format', '%(body)s')
+        body = message.get_payload()
+        subject = message['Subject']
+        return fmt % dict(body=body, subject=subject)
 
     def send_to_slack(self, text, **options):
         print('sending to slack', text, options)
