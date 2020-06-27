@@ -44,32 +44,32 @@ Example `config.yml` for redirecting email to two channels: `#monit` and `#cron`
 ```yaml
 # default values for channel, bot name, avatar url, slack token and debug mode
 default:
-    channel: '#general'
-    username: slacker
-    icon_url: ''
-    slack_token: xoxb-00000000000-aaaaaaaaaaaaaaaaaaaaaaaa
+    channel: "#general"
+    username: "slacker"
+    icon_url: ""
+    slack_token: "xoxb-00000000000-aaaaaaaaaaaaaaaaaaaaaaaa"
     debug: false
 
 
 # list of rules
 rules:
-    - name: Monit rule
-      from: monit@.*     # all emails from monit@localhost will match this rule
+    - name: "Monit rule"
+      from: "monit@.*"     # all emails from monit@localhost will match this rule
 
       options:
-          username: monit
-          channel: '#monit'
-          icon_url: 'https://bitbucket.org/tildeslash/monit/avatar/128'
+          username: "monit"
+          channel: "#monit"
+          icon_url: "https://bitbucket.org/tildeslash/monit/avatar/128"
           debug: false
 
 
-    - name: Cron rule
-      from: root@localhost
-      subject: Cron.*    # cron email subject starts with "Cron..."
+    - name: "Cron rule"
+      from: "root@localhost"
+      subject: "Cron.*"    # cron email subject starts with "Cron..."
 
       options:
-          username: cron
-          channel: '#cron'
-          icon_url: ''
+          username: "cron"
+          channel: "#cron"
+          icon_url: ""
           debug: true    # will output full email with all X-headers
 ```
