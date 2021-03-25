@@ -1,5 +1,5 @@
 -e git://github.com/aio-libs/aiosmtpd#egg=aiosmtpd
 atpublic==0.3
 pyslack==0.3.0
-PyYAML==5.1
+PyYAML==5.4
 requests==2.20.0
