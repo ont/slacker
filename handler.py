@@ -16,7 +16,7 @@ class MessageHandler(Message):
             print('Config doesn\'t exists!')
             exit(1)
 
-        self.config = yaml.load(open(config))
+        self.config = yaml.safe_load(open(config))
 
     def handle_message(self, message):
         """ This method will be called by aiosmtpd server when new mail will

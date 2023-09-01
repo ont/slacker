@@ -1,5 +1,10 @@
--e git+https://github.com/aio-libs/aiosmtpd#egg=aiosmtpd /usr/src/app/src/aiosmtpd
-atpublic==0.3
-pyslack==0.3.0
-PyYAML==5.4
+aiosmtpd==1.4.4.post2
+atpublic==4.0
+attrs==23.1.0
+certifi==2023.7.22
+charset-normalizer==3.2.0
+idna==3.4
+pyslack==0.5.0
+PyYAML==6.0.1
 requests==2.31.0
+urllib3==2.0.4
