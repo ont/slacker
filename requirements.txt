@@ -7,4 +7,4 @@ idna==3.4
 pyslack==0.5.0
 PyYAML==6.0.1
 requests==2.31.0
-urllib3==2.0.4
+urllib3==2.0.7
