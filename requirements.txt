@@ -1,4 +1,4 @@
-aiosmtpd==1.4.4.post2
+aiosmtpd==1.4.5
 atpublic==4.0
 attrs==23.1.0
 certifi==2023.7.22
